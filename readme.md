@@ -8,7 +8,7 @@ Creation of CLI for initialization using Twillio's video base.
 
 ---
 
-> ## Passo a Passo
+<!-- > ## Passo a Passo
 
 - Clone o repositório;
 - Instale as dependencias: `npm i`;
@@ -18,4 +18,4 @@ Creation of CLI for initialization using Twillio's video base.
     - `--yes/-y`: projeto utilizando javascript e git inicializado;
     - `--git/-g`: inicializar git;
     - `--install/-i`: instalar dependencias do template;
-    - `template_dir`: diretorio do template;
+    - `template_dir`: diretorio do template; -->

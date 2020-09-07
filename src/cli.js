@@ -25,7 +25,7 @@ function parseArgumentsIntoOptions(rawArgs) {
 }
 
 async function promptForMissingOptions(options) {
-  const defaultTemplate = "JavaScript";
+  const defaultTemplate = "JavaScript - MongoDB";
   if (options.skipPrompts) {
     return {
       ...options,
@@ -39,7 +39,12 @@ async function promptForMissingOptions(options) {
       type: "list",
       name: "template",
       message: "Please choose which project template to use",
-      choices: ["JavaScript", "TypeScript"],
+      choices: [
+        "JavaScript - MongoDB",
+        "JavaScript - MariaDB",
+        "TypeScript - MongoDB",
+        "TypeScript - MariaDB",
+      ],
       default: defaultTemplate,
     });
   }
@@ -53,11 +58,21 @@ async function promptForMissingOptions(options) {
     });
   }
 
+  if (!options.runInstall) {
+    questions.push({
+      type: "confirm",
+      name: "runInstall",
+      message: "Install dependencies of repository?",
+      default: false,
+    });
+  }
+
   const answers = await inquirer.prompt(questions);
   return {
     ...options,
     template: options.template || answers.template,
     git: options.git || answers.git,
+    runInstall: options.runInstall || answers.runInstall,
   };
 }
 

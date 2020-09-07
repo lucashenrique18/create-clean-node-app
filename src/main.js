@@ -35,7 +35,7 @@ export async function createProject(options) {
   const templateDir = path.resolve(
     __dirname,
     "../templates",
-    options.template.toLowerCase()
+    options.template.toLowerCase().split(" ").join("")
   );
   options.templateDirectory = templateDir;
   console.log(__dirname);
